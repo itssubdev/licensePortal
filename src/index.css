@@ -2,22 +2,31 @@ body {
     margin: 0;
     font-family: Arial, sans-serif;
     background: #0f172a;
+    -webkit-text-size-adjust: 100%;
 }
 
-
+/* FIXED CENTERING CONTAINER */
 .container {
-    height: 100vh;
+    min-height: 100vh;   /* fallback */
+    min-height: 100dvh;  /* mobile-safe viewport */
+
     display: flex;
     justify-content: center;
     align-items: center;
+
+    padding: 16px;
+    box-sizing: border-box;
 }
 
-
+/* RESPONSIVE CARD */
 .card {
     background: #1e293b;
     padding: 30px;
     border-radius: 12px;
-    width: 320px;
+
+    width: 100%;
+    max-width: 380px;
+
     text-align: center;
     box-shadow: 0 10px 25px rgba(0,0,0,0.6);
 
@@ -26,20 +35,20 @@ body {
     gap: 15px;
 }
 
-
+/* TITLE */
 h2 {
     color: #f8fafc;
     margin: 0;
 }
 
-
+/* FORM */
 .form {
     display: flex;
     flex-direction: column;
     gap: 12px;
 }
 
-
+/* INPUT */
 input {
     width: 100%;
     padding: 10px;
@@ -48,13 +57,15 @@ input {
     background: #0f172a;
     color: #f8fafc;
     outline: none;
+    font-size: 16px;
+    box-sizing: border-box;
 }
 
 input::placeholder {
     color: #64748b;
 }
 
-
+/* BUTTON */
 button {
     width: 100%;
     padding: 10px;
@@ -64,13 +75,14 @@ button {
     border-radius: 6px;
     cursor: pointer;
     font-weight: 500;
+    font-size: 16px;
 }
 
 button:hover {
     background: #2563eb;
 }
 
-
+/* STATUS BOX */
 .status-box {
     margin-top: 18px;
     padding: 16px 18px;
@@ -79,6 +91,7 @@ button:hover {
     text-align: center;
     font-size: 15px;
     line-height: 1.4;
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,18 +100,25 @@ button:hover {
     background: #0f172a;
     border: 1px solid #334155;
     color: #e2e8f0;
+
+    word-break: break-word;
 }
 
-
+/* SUCCESS */
 .status-box.success {
     background: rgba(34, 197, 94, 0.12);
     border: 1px solid #22c55e;
     color: #86efac;
 }
 
-
+/* ERROR */
 .status-box.error {
     background: rgba(239, 68, 68, 0.12);
     border: 1px solid #ef4444;
     color: #fca5a5;
+}
+
+/* OPTIONAL SAFETY FOR FULL HEIGHT */
+html, body {
+    height: 100%;
 }
