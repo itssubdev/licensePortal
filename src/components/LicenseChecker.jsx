@@ -28,7 +28,7 @@ export default function LicenseChecker() {
 
       for (let row of rows) {
         const columns = row.split(",");
-        const id = columns[3]?.trim();
+        const id = columns[0]?.trim();
 
         if (id && id.toLowerCase() === value.toLowerCase()) {
           found = true;
