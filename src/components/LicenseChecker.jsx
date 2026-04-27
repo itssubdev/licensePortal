@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export default function LicenseChecker() {
   const [input, setInput] = useState("");
-  const [status, setStatus] = useState(null); 
-
+  const [status, setStatus] = useState(null);
 
   const checkLicense = async (value) => {
     if (!value.trim()) {
@@ -14,14 +13,22 @@ export default function LicenseChecker() {
       return;
     }
 
+    // ✅ Track event in Google Analytics
+    if (window.gtag) {
+      window.gtag("event", "license_check", {
+        event_category: "engagement",
+        event_label: value
+      });
+    }
+
     try {
       const response = await fetch("/licenses.csv");
       const data = await response.text();
 
       const rows = data
         .split("\n")
-        .map(r => r.trim())
-        .filter(r => r)
+        .map((r) => r.trim())
+        .filter((r) => r)
         .slice(1);
 
       let found = false;
@@ -39,15 +46,16 @@ export default function LicenseChecker() {
       if (found) {
         setStatus({
           type: "success",
-          message: "Your license is ready to collect at Radhe Radhe Yatayat Office/तपाईंको लाइसेन्स राधे राधे यातायात कार्यालयमा लिन तयार छ।"
+          message:
+            "Your license is ready to collect at Radhe Radhe Yatayat Office/तपाईंको लाइसेन्स राधे राधे यातायात कार्यालयमा लिन तयार छ।"
         });
       } else {
         setStatus({
           type: "error",
-          message: "Your license is still in printing State/तपाईंको लाइसेन्स अझै छाप्ने प्रक्रियामा छ।"
+          message:
+            "Your license is still in printing State/तपाईंको लाइसेन्स अझै छाप्ने प्रक्रियामा छ।"
         });
       }
-
     } catch (error) {
       setStatus({
         type: "error",
@@ -56,19 +64,8 @@ export default function LicenseChecker() {
     }
   };
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      if (input.trim()) {
-        checkLicense(input);
-      }
-    }, 10000);
-
-    return () => clearInterval(interval);
-  }, [input]);
-
   return (
     <div className="card">
-
       <h2>License Printing Status Check Portal</h2>
 
       <form
@@ -85,18 +82,14 @@ export default function LicenseChecker() {
           placeholder="Enter your License number"
         />
 
-        <button type="submit">
-          Check Status
-        </button>
+        <button type="submit">Check Status</button>
       </form>
 
-    
       {status && (
         <div className={`status-box ${status.type}`}>
           {status.type === "success" ? "✔" : "✖"} {status.message}
         </div>
       )}
-
     </div>
   );
 }
