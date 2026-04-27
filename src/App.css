@@ -1,0 +1,88 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f172a;
+}
+
+/* ✅ FULL SCREEN CENTERING */
+.container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 🧾 FORM BOX */
+.container > div,
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* If you want a card style */
+.container form,
+.container > div {
+    background: #1e293b;
+    padding: 30px;
+    border-radius: 12px;
+    width: 320px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+
+/* TITLE */
+h2 {
+    color: white;
+    margin-bottom: 20px;
+}
+
+/* INPUT */
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: none;
+    margin-bottom: 15px;
+    background: #fff;
+    color: #000;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #2563eb;
+}
+
+/* RESULT TEXT */
+.valid {
+    margin-top: 15px;
+    color: #22c55e;
+    font-weight: bold;
+}
+
+.invalid {
+    margin-top: 15px;
+    color: #ef4444;
+    font-weight: bold;
+}
+.container {
+    position: fixed;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
