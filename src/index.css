@@ -36,7 +36,7 @@ body {
 }
 
 /* TITLE */
-h2 {
+h3 {
     color: #f8fafc;
     margin: 0;
 }
@@ -121,4 +121,31 @@ button:hover {
 /* OPTIONAL SAFETY FOR FULL HEIGHT */
 html, body {
     height: 100%;
+}
+/* GUIDELINES BOX (VISIBILITY IMPROVEMENT) */
+.guide-box {
+    margin-top: 18px;
+    padding: 14px 16px;
+    border-radius: 10px;
+
+    background: rgba(59, 130, 246, 0.08);
+    border: 1px solid rgba(59, 130, 246, 0.35);
+
+    text-align: left;
+}
+
+/* TEXT VISIBILITY BOOST */
+.guide-box p {
+    margin: 0;
+
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 1.6;
+
+    color: #e2e8f0; /* brighter for dark background */
+}
+
+/* OPTIONAL: subtle highlight for better readability */
+.guide-box p {
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
 }

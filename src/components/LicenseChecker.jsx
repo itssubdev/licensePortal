@@ -13,7 +13,7 @@ export default function LicenseChecker() {
       return;
     }
 
-    // ✅ Track event in Google Analytics
+    // Track event in Google Analytics
     if (window.gtag) {
       window.gtag("event", "license_check", {
         event_category: "engagement",
@@ -47,13 +47,14 @@ export default function LicenseChecker() {
         setStatus({
           type: "success",
           message:
-            "Your license is ready to collect at Radhe Radhe Yatayat Office/तपाईंको लाइसेन्स राधे राधे यातायात कार्यालयमा लिन तयार छ।"
+            "तपाईंको लाइसेन्स राधे राधे यातायात कार्यालयमा वितरणको लागि तयार छ। "
+
         });
       } else {
         setStatus({
           type: "error",
           message:
-            "Your license is still in printing State/तपाईंको लाइसेन्स अझै छाप्ने प्रक्रियामा छ।"
+            "तपाईंको लाइसेन्स हालसम्म राधेराधे कार्यालयमा प्राप्त भएको छैन।"
         });
       }
     } catch (error) {
@@ -66,7 +67,7 @@ export default function LicenseChecker() {
 
   return (
     <div className="card">
-      <h2>License Printing Status Check Portal</h2>
+      <h3>राधे राधे कार्यालयमा वितरणका लागि तयार रहेको लाइसेन्स खोज्नुहोस्।।</h3>
 
       <form
         className="form"
@@ -79,12 +80,21 @@ export default function LicenseChecker() {
           type="text"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="Enter your License number"
+          placeholder="आफ्नो लाइसेन्स नम्बर प्रविष्ट गर्नुहोस्।"
         />
 
-        <button type="submit">Check Status</button>
+        <button type="submit">खोज्नुहोस्।</button>
       </form>
 
+      {/* GUIDELINES (only shown initially) */}
+      {status === null && (
+        <div className="guide-box">
+          <p> तपाईंले आफ्नो लाइसेन्स नम्बर प्रविष्ट गरेपछि, यदि परिणाममा लाइसेन्स छापिएको र लिन तयार छ भनेर देखाएमा मात्र राधे राधे कार्यालयमा जानुहोस्।
+</p>
+        </div>
+      )}
+
+      {/* STATUS OUTPUT */}
       {status && (
         <div className={`status-box ${status.type}`}>
           {status.type === "success" ? "✔" : "✖"} {status.message}
