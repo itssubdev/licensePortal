@@ -1,14 +1,17 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #0f172a;
-    -webkit-text-size-adjust: 100%;
+    background: #000;
 }
 
-/* FIXED CENTERING CONTAINER */
+html, body {
+    height: 100%;
+}
+
+/* CENTER */
 .container {
-    min-height: 100vh;   /* fallback */
-    min-height: 100dvh;  /* mobile-safe viewport */
+    min-height: 100vh;
+    min-height: 100dvh;
 
     display: flex;
     justify-content: center;
@@ -18,9 +21,9 @@ body {
     box-sizing: border-box;
 }
 
-/* RESPONSIVE CARD */
+/* CARD */
 .card {
-    background: #1e293b;
+    background: #fff;
     padding: 30px;
     border-radius: 12px;
 
@@ -28,17 +31,16 @@ body {
     max-width: 380px;
 
     text-align: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
 
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-/* TITLE */
 h3 {
-    color: #f8fafc;
     margin: 0;
+    color: #000;
 }
 
 /* FORM */
@@ -48,104 +50,110 @@ h3 {
     gap: 12px;
 }
 
-/* INPUT */
+/* INPUT (with border) */
 input {
     width: 100%;
     padding: 10px;
+
     border-radius: 6px;
-    border: 1px solid #334155;
-    background: #0f172a;
-    color: #f8fafc;
-    outline: none;
+    border: 2px solid #3b82f6;
+
+    background: #fff;
+    color: #000;
+
     font-size: 16px;
     box-sizing: border-box;
+
+    outline: none;
 }
 
-input::placeholder {
-    color: #64748b;
+input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
 }
 
-/* BUTTON */
+/* BLUE BUTTON */
 button {
     width: 100%;
     padding: 10px;
-    background: #3b82f6;
-    color: white;
+
+    background: #2563eb;
+    color: #fff;
+
     border: none;
     border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
+
     font-size: 16px;
+    cursor: pointer;
 }
 
 button:hover {
-    background: #2563eb;
+    background: #1d4ed8;
 }
 
-/* STATUS BOX */
-.status-box {
-    margin-top: 18px;
-    padding: 16px 18px;
-    border-radius: 10px;
-    font-weight: 600;
-    text-align: center;
-    font-size: 15px;
-    line-height: 1.4;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-
-    background: #0f172a;
-    border: 1px solid #334155;
-    color: #e2e8f0;
-
-    word-break: break-word;
+button:disabled {
+    background: #93c5fd;
+    cursor: not-allowed;
 }
 
-/* SUCCESS */
-.status-box.success {
-    background: rgba(34, 197, 94, 0.12);
-    border: 1px solid #22c55e;
-    color: #86efac;
-}
-
-/* ERROR */
-.status-box.error {
-    background: rgba(239, 68, 68, 0.12);
-    border: 1px solid #ef4444;
-    color: #fca5a5;
-}
-
-/* OPTIONAL SAFETY FOR FULL HEIGHT */
-html, body {
-    height: 100%;
-}
-/* GUIDELINES BOX (VISIBILITY IMPROVEMENT) */
+/* GUIDE */
 .guide-box {
     margin-top: 18px;
     padding: 14px 16px;
     border-radius: 10px;
 
-    background: rgba(59, 130, 246, 0.08);
-    border: 1px solid rgba(59, 130, 246, 0.35);
+    background: #fef2f2;
+    border: 1px solid rgba(220, 38, 38, 0.35);
 
     text-align: left;
 }
 
-/* TEXT VISIBILITY BOOST */
 .guide-box p {
     margin: 0;
-
     font-size: 15px;
     font-weight: 600;
     line-height: 1.6;
-
-    color: #e2e8f0; /* brighter for dark background */
 }
 
-/* OPTIONAL: subtle highlight for better readability */
-.guide-box p {
-    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.4);
+/* RESULT BOX */
+.status-box {
+    margin-top: 18px;
+    padding: 16px 18px;
+
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 8px;
+
+    text-align: left;
+    word-break: break-word;
+
+    font-size: 15px;
+    line-height: 1.5;
+}
+
+/* LINES */
+.status-line {
+    font-size: 14px;
+}
+
+.status-message {
+    font-weight: 600;
+}
+
+/* SUCCESS */
+.status-box.success {
+    background: #f0fdf4;
+    border: 1px solid #16a34a;
+    color: #166534;
+}
+
+/* ERROR */
+.status-box.error {
+    background: #fef2f2;
+    border: 1px solid #dc2626;
+    color: #991b1b;
 }
