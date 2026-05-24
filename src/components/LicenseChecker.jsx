@@ -78,7 +78,8 @@ export default function LicenseChecker() {
           name: matchedName,
           id: matchedId,
           message:
-            "तपाईंको लाइसेन्स राधे राधे यातायात कार्यालयमा वितरणको लागि तयार छ।",
+            "तपाईंको लाइसेन्स यातायात व्यवस्था कार्यालय, राधेराधेको कोठा नं. १ मा वितरणका लागि तयार छ।"
+
         });
       } else {
         setStatus({
@@ -140,7 +141,7 @@ export default function LicenseChecker() {
           {/* 1. NAME */}
           {status.type === "success" && (
             <div className="status-line">
-              <strong>Applicant Name:</strong> {status.name}
+              <strong>License Holder's Name:</strong> {status.name}
             </div>
           )}
 
