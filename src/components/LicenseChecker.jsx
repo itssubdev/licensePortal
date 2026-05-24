@@ -148,7 +148,7 @@ export default function LicenseChecker() {
           {/* 2. ID */}
           {status.type === "success" && (
             <div className="status-line">
-              <strong>License ID:</strong> {status.id}
+              <strong>License number:</strong> {status.id}
             </div>
           )}
 
